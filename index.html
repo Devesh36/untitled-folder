@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7bbf493add.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                
+                <a href=""> <img src="images/tss.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href='#header'>Home</a></li>
+                    <li><a href='#about'>About</a></li>
+                    <li><a href='#services'>Services</a></li>
+                    <li><a href='#portfolio'>My Work</a></li>
+                    <li><a href='#contact'>Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>WEB DEVELOPER</p>
+                <h1>Hi, I'm <span>Devesh</span> Rathod <br>from India</h1>
+            </div>
+        </div>
+    </div>
+    <!-- About Section -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png" alt="User Image">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hi, My name is Devesh Rathod. I'm currently pursuing my bachelor's in Computer Science. I'm the founder and owner of the company Tech Steps Services.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills', event)">Skills</p>
+                        
+                        <p class="tab-links" onclick="opentab('education', event)">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web development</span><br>Developing portfolio and responsive website</li>
+                            <li><span>Social Media Marketing</span><br>Marketing your brand through various social media platform</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2020</span><br>ST MARY'S HIGH SCHOOL</li>
+                            <li><span>2022</span><br>Pirojsha Godrej Junior Science College</li>
+                            <li><span>2026</span><br>TERNA ENGINEERING COLLEGE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services Section -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web development</h2>
+                    <p>Developing various website for business and for portfolio </p>
+                    <a href="https://techstepsservices.com/#services">Learn more</a>
+                </div>
+                <div>
+                    <i class="fab fa-instagram"></i>
+                    <h2>Social Media Marketing</h2>
+                    <p>Marketing your brand through various social media flatform like instagram and fackbook</p>
+                    <a href="https://techstepsservices.com/#services">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Section -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/work-1.png">
+                    <div class="layer">
+                        <h3>Legal Consultio</h3>
+                        <p>A responsive lawyer website for client engagement</p>
+                        <a href="https://www.legalconsultio.com/"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-2.png">
+                    <div class="layer">
+                        <h3>Tech Steps Services</h3>
+                        <p>A services website specially made for a legal company</p>
+                        <a href="https://techstepsservices.com/#services"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="https://techstepsservices.com/#services" class="btn">See more</a>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fas fa-paper-plane"></i> deveshrathod88@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 7397901565</p>
+                    <div class="social-icons">
+                        <a href=" "><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/_devesh_rathod_/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © Devesh. Made with by TSS</p>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.querySelectorAll(".tab-links");
+        var tabcontents = document.querySelectorAll(".tab-contents");
+
+        function opentab(tabname, event) {
+            for (let tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (let tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            document.querySelector("#" + tabname).classList.add("active-tab");
+            event.currentTarget.classList.add("active-link");
+        }
+
+        function openmenu() {
+            var sidemenu = document.getElementById("sidemenu");
+            sidemenu.style.right = "0";
+        }
+
+        function closemenu() {
+            var sidemenu = document.getElementById("sidemenu");
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyLtasXsYkzzf5_Ou4FQ0-i7pn0fffAzD44DtgVywtQD6WeV_Gr-_GSoMNJanONflOh/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg=document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            }
+            )
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
